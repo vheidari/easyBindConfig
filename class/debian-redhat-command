@@ -1,0 +1,19 @@
+	debian base command :
+		- sudo service bind9 restart
+		- sudo service bind9 start
+		- sudo service bind9 enable
+		- sudo service bind9 disable
+		- sudo service bind9 status
+			+ sudo /etc/init.d/bind9 restart
+			+ sudo /etc/init.d/bind9 start
+			+ sudo /etc/init.d/bind9 enable
+			+ sudo /etc/init.d/bind9 disable
+			+ sudo /etc/init.d/bind9 status
+
+
+	rpm base command :
+		- systemctl restart named
+		- systemctl start named
+		- systemctl enable named 
+		- systemctl disable named
+		- systemctl status named
