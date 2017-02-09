@@ -1,4 +1,7 @@
-	debian base command :
+
+Reference : all command need for config bind on server
+
+	-- Debian base command :
 		- sudo service bind9 restart
 		- sudo service bind9 start
 		- sudo service bind9 enable
@@ -11,7 +14,7 @@
 			+ sudo /etc/init.d/bind9 status
 
 
-	rpm base command :
+	-- Rpm base command :
 		- systemctl restart named
 		- systemctl start named
 		- systemctl enable named 

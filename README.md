@@ -1,4 +1,7 @@
-# Easy Bind Config
+# NOTE FOR SERVER ADMIN AND USER
+ - This software is in developed not a stable version of `Easy Bind Config` please don't use for production
+
+# About Easy Bind Config
  - This help to you easy install and config bind on your server 
 
 ## linux server support 

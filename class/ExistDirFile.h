@@ -69,7 +69,7 @@ class ExistDirFile {
 
 	}
 
-	// cheking backup filder make and bind backup is exist
+	// cheking backup folder make and bind backup is exist
 	bool chekingBindBackup(string linuxType)
 	{
 		if(linuxType == "Ubuntu")
@@ -83,6 +83,46 @@ class ExistDirFile {
 			{
 				return false;
 			}
+		}
+		else if(linuxType == "Centos")
+		{
+			DIR* checkbackupDir = opendir("/etc/named/BindBackup");
+			if (checkbackupDir)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else if (linuxType == "Fedora")
+		{
+			DIR* checkbackupDir = opendir("/etc/named/BindBackup");
+			if (checkbackupDir)
+			{
+				return true;		
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else if (linuxType == "Debian")
+		{
+			DIR* checkbackupDir = opendir("/etc/bind/BindBackup");
+			if (checkbackupDir)
+			{
+				return true;		
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
 		}
 	}
 

@@ -9,6 +9,7 @@
 #include "class/SysCommand.h"
 #include "class/MakeFile.h"
 #include "class/ExistDirFile.h"
+#include "class/Validate.h"
 
 
 //make standard library name space
@@ -38,6 +39,7 @@ int main()
 	bool dnssec_validation = true;
 	bool bindInstall = false;
 	bool bindBackupExist = false;
+	bool ipVer4Status = false;
 
 
 
@@ -100,7 +102,7 @@ int main()
 		 cout << "-------------------------------------------------------\n";
 			//check BindBackup is exist in /etc/bind
 			bindBackupExist = ExistDirObject.chekingBindBackup(linuxType);
-			cout << bindBackupExist << endl;
+			
 		 if(linuxType == "Ubuntu")
 		 {
 		 	if(bindInstall)
@@ -113,11 +115,20 @@ int main()
 			 		bindBackUpFile.copyAndMakeBackup(linuxType);
 			 	}
 
-
 			 	cout << "EBC find Bind Dns Server software \n";
 			 	cout << "	+Please insert ip server ex = 48.10.15.30\n";
 			 	cout << "EBC > ";
 			 	cin  >>	ipAddress;
+
+			 	//chack ipAddress version 4
+			 	Validate checkIpVer4;
+			 	ipVer4Status = checkIpVer4.validateIpV4Address(ipAddress);
+
+			 	if(!ipVer4Status)
+			 	{
+			 		continue;
+			 	}
+
 			 	cout << "	+Pease inster domin name ex = mydomin.com\n";
 			 	cout << "EBC > ";
 			 	cin  >>	dominName;	 

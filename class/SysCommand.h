@@ -179,6 +179,26 @@ public:
 			system("cp /etc/bind/named.conf.local /etc/bind/BindBackup");
 			system("cp /etc/default/bind9 /etc/bind/BindBackup");
 		}
+		else if(linuxType == "Centos")
+		{
+			system("mkdir /etc/named/BindBackup");
+			system("cp /etc/named.conf  /etc/named/BindBackup");
+			system("cp /etc/resolv.conf /etc/named/BindBackup");
+			system("cp /etc/hosts /etc/named/BindBackup");
+		}
+		else if(linuxType == "Fedora")
+		{
+			system("mkdir /etc/named/BindBackup");
+			system("cp /etc/named.conf  /etc/named/BindBackup");
+			system("cp /etc/resolv.conf /etc/named/BindBackup");
+			system("cp /etc/hosts /etc/named/BindBackup");
+		}		
+		else if(linuxType == "Debian")
+		{
+			system("mkdir /etc/bind/BindBackup");
+			system("cp /etc/bind/named.conf.local /etc/bind/BindBackup");
+			system("cp /etc/default/bind9 /etc/bind/BindBackup");
+		}
 
 	}
 	// restore Orginal file in /etc/bind/ and /etc/default/
@@ -189,6 +209,26 @@ public:
 			system("cp /etc/bind/BindBackup/named.conf.local /etc/bind");
 			system("cp /etc/bind/BindBackup/bind9 /etc/default ");
 		}
+		else if(linuxType == "Centos")
+		{
+			system("cp /etc/named/BindBackup/named.conf /etc");
+			system("cp /etc/named/BindBackup/resolv.conf /etc");
+			system("cp /etc/named/BindBackup/hosts /etc");
+		}
+		else if(linuxType == "Fedora")
+		{
+			system("cp /etc/named/BindBackup/named.conf /etc");
+			system("cp /etc/named/BindBackup/resolv.conf /etc");
+			system("cp /etc/named/BindBackup/hosts /etc");
+		}		
+		else if(linuxType == "Debian")
+		{
+			system("cp /etc/bind/BindBackup/named.conf.local /etc/bind");
+			system("cp /etc/bind/BindBackup/bind9 /etc/default ");
+		}
+
 	}	
+
+
 };
 
