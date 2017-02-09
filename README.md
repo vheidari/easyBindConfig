@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Easy Bind Config
  -This help to you easy install and config bind on your server 
 
@@ -17,3 +18,6 @@
 #compile source note 
  -Easy Bind Config Souport C++ standard library for compaile you using this command 
  	- g++ -std=c++0x  -o easyBindConfig main.cpp
+=======
+# easyBindConfig
+>>>>>>> 315b48074be8fee9648530aa61fe03cdc4ddec32
