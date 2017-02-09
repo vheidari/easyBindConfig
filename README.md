@@ -10,7 +10,7 @@
  * -- STEP 03 - Run binery by root and enjoy 
 
 ## compile source note 
- - Easy Bind Config Souport C++ standard library for compaile you using this command 
+ - Easy Bind Config Souport C++ 11 standard library for compaile you using this command 
  	
  ```
  -- g++ -std=c++0x  -o easyBindConfig main.cpp
