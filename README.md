@@ -1,4 +1,4 @@
-# NOTE FOR SERVER ADMIN AND USER
+# NOTE FOR SERVER ADMIN
  - This software is in developed not a stable version of `Easy Bind Config` please don't use for production
 
 # About Easy Bind Config
