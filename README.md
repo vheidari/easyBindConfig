@@ -1,5 +1,5 @@
-# NOTE FOR SERVER ADMIN
- - This software is in developed not a stable version of `Easy Bind Config` please don't use for production
+# SERVER ADMIN NOTE
+ - This software in development . not a stable version of `Easy Bind Config`. please don't use for production
 
 # About Easy Bind Config
  - This help to you easy install and config bind on your server 
