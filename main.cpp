@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <unistd.h>
 #include "class/SysCommand.h"
 #include "class/MakeFile.h"
 #include "class/ExistDirFile.h"
@@ -40,6 +41,7 @@ int main()
 	bool bindInstall = false;
 	bool bindBackupExist = false;
 	bool ipVer4Status = false;
+	bool dominNameStatus = false;
 
 
 
@@ -121,17 +123,29 @@ int main()
 			 	cin  >>	ipAddress;
 
 			 	//chack ipAddress version 4
-			 	Validate checkIpVer4;
-			 	ipVer4Status = checkIpVer4.validateIpV4Address(ipAddress);
+			 	Validate validInput;
+			 	ipVer4Status = validInput.validateIpV4Address(ipAddress);
 
 			 	if(!ipVer4Status)
 			 	{
+			 		cout << "Your input ip is not valid ! Please Wait easyBindConfig restart...\n";
+			 		usleep(3000000);
 			 		continue;
 			 	}
 
-			 	cout << "	+Pease inster domin name ex = mydomin.com\n";
+			 	cout << "	+Please insert domin name ex = mydomin.com\n";
 			 	cout << "EBC > ";
-			 	cin  >>	dominName;	 
+			 	cin  >>	dominName;
+
+			 	//check dominName input by user
+			 	dominNameStatus = validInput.validateDomineName(dominName);
+			 	if(!dominNameStatus)
+			 	{
+			 		cout << "Your input domine name is not valid ! Please Wait easyBindConfig restart...\n";
+			 		usleep(3000000);
+			 		continue;
+			 	}
+
 			 	cout << "	+Pease inster domin name ex = mydomin.com\n";
 			 	cout << "Your  ip address : " << ipAddress << endl;
 			 	cout << "Your domin name  : " << dominName << endl;
