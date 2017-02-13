@@ -102,8 +102,12 @@ int main()
 		 cout << "\n";
 		 cout << "Bind dns server is : " << bindInstallStatus << endl;
 		 cout << "-------------------------------------------------------\n";
-			//check BindBackup is exist in /etc/bind
-			bindBackupExist = ExistDirObject.chekingBindBackup(linuxType);
+		
+
+
+
+		 //check BindBackup is exist in /etc/bind
+		bindBackupExist = ExistDirObject.chekingBindBackup(linuxType);
 			
 		 if(linuxType == "Ubuntu")
 		 {
