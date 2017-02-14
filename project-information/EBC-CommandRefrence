@@ -2,13 +2,19 @@
 EBC Command Reference:
 	
 	- general command
+		-- config  = go to config bind on dns server
 		-- install = install bind on linux distro
 		-- remove  = remove from linux distro
 		-- restor  = restor defulat bind dns sever file
+		 - soft command 
+		 	-- help = go to help page and show refrence
+		 	-- back =  back to main page
+		 	-- exit = exit of software
 
 
 	- service command 
 		-- start   = start bind service 
+		-- stop    = stop bind service
 		-- reset   = reset bind dns server
 		-- enable  = enable bind dns server
 		-- disable = disable bind dns server 

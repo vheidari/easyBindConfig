@@ -227,7 +227,16 @@ public:
 			system("cp /etc/bind/BindBackup/bind9 /etc/default ");
 		}
 
+	}
+
+	void exitFromEbc()
+	{
+		system("reset");
+		cout << "good bye ADMIN have good time \n";
+		exit(0);
 	}	
+
+
 
 
 };
