@@ -17,4 +17,6 @@ EBC Command Reference:
 		-- stop    = stop bind service
 		-- reset   = reset bind dns server
 		-- enable  = enable bind dns server
-		-- disable = disable bind dns server 
+		-- disable = disable bind dns server
+
+		
