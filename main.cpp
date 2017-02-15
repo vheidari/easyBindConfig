@@ -234,15 +234,15 @@ int main()
 				}
 				else if(linuxType == "Centos")
 				{
-
+					//todo	
 				}
 				else if(linuxType == "Fedora")
-				{
-
+				{	
+					//todo
 				}
 				else if(linuxType == "Debian")
 				{
-					
+					//todo	
 				}
 		 	}
 		 	else if(pointer == "help")
