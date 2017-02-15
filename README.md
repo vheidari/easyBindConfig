@@ -2,8 +2,7 @@
  - This software in development . not a stable version of `Easy Bind Config`. please don't use for production
 
 # About Easy Bind Config
- - This help to you easy install and config bind on your server if you want more about bind dns server software see here
- bind dns software link : [Bind Dns Software](https://www.isc.org/downloads/bind/)
+ - This help to you easy install and config bind on your server if you want more about bind dns server software see here : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
 
 ## linux server support 
  - Work on Ubunto - Fedora - Debian - RedHat and Centos
