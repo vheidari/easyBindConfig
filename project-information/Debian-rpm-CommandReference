@@ -2,6 +2,12 @@
 Reference : all command need for config bind on server
 
 	-- Debian base command :
+
+		+ apt-get install bind9
+		+ apt-get install --reinstall bind9
+		+ apt-get remove --purge bind9 
+		
+
 		- sudo service bind9 restart
 		- sudo service bind9 start
 		- sudo service bind9 enable

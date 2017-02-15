@@ -24,7 +24,7 @@ public:
 	{
 		if(linuxType == "Ubuntu")
 		{
-			system("sudo apt-get install bind*");
+			system("sudo apt-get install --reinstall bind9");
 		}
 		else if(linuxType == "Centos")
 		{
@@ -36,7 +36,7 @@ public:
 		}		
 		else if(linuxType == "Debian")
 		{
-			system("sudo apt-get install bind*");
+			system("sudo apt-get install --reinstall bind9");
 		}
 	}
 
@@ -57,7 +57,7 @@ public:
 		}		
 		else if(linuxType == "Debian")
 		{
-			system("sudo apt-get remove bind*");
+			system("sudo apt-get purge --auto-remove bind9");
 		}
 
 	}
@@ -68,6 +68,7 @@ public:
 		if(linuxType == "Ubuntu")
 		{
 			system("sudo /etc/init.d/bind9 start");
+			usleep(3000000);
 		}
 		else if(linuxType == "Centos")
 		{
@@ -102,6 +103,28 @@ public:
 		else if(linuxType == "Debian")
 		{
 			system("sudo /etc/init.d/bind9 restart");
+		}
+	}	
+
+
+	//stop bind server by linux type
+	void bindServiceStop(string linuxType)
+	{
+		if(linuxType == "Ubuntu")
+		{
+			system("sudo /etc/init.d/bind9 stop");
+		}
+		else if(linuxType == "Centos")
+		{
+			system("systemctl stop named");
+		}		
+		else if(linuxType == "Fedora")
+		{
+			system("systemctl stop named");
+		}		
+		else if(linuxType == "Debian")
+		{
+			system("sudo /etc/init.d/bind9 stop");
 		}
 	}
 

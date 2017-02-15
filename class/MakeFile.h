@@ -55,6 +55,7 @@ public:
 		makeZoneMaster << "zone \"" << c << "." << b << "." << a << ".in-addr.arpa\" {" << endl;
 		makeZoneMaster << "type master;" << endl;
 		makeZoneMaster << "file \"/etc/bind/zones/rev." << c << "." << b << "." << a << ".in-addr.arpa\";" << endl;
+		makeZoneMaster << "allow-update { none; };" << endl;
 		makeZoneMaster << "};" << endl;
 		makeZoneMaster << "\n";
 		makeZoneMaster << "#################### zone+master make by easy bind config #####################";
@@ -107,14 +108,25 @@ public:
 
 		ofstream makeMasterFile;
 		makeMasterFile.open(path.c_str());
-		makeMasterFile << "@ IN SOA " 	<< dominName << "." << "host." << dominName <<". (" << endl;
-		makeMasterFile << "2010081401;" << endl;
-		makeMasterFile << "28800;"   	<< endl;
-		makeMasterFile << "604800;"     << endl;
-		makeMasterFile << "604800;"  	<< endl;
-		makeMasterFile << "86400 );" 	<< endl;
-		makeMasterFile << "IN NS ns1." 	<< dominName << "." << endl;
-		makeMasterFile << "4 IN PTR "  	<< dominName << "." << endl;
+		makeMasterFile << "$ORIGIN " 		   			 << to_string(c) + "." + to_string(b) + "." + to_string(a) + ".in-addr.arpa.\n";
+		makeMasterFile << "$TTL 86400"  	  			 << endl;
+		makeMasterFile << "@ IN SOA " 		   			 << dominName << ". " << "host." << dominName <<". (" << endl;
+		makeMasterFile << "2010081401; serial" 			 << endl;
+		makeMasterFile << "28800; refresh after 6 hours" << endl;
+		makeMasterFile << "604800; retry after 1 hour"   << endl;
+		makeMasterFile << "604800; expire after 1 week"  << endl;
+		makeMasterFile << "86400 ); minimum TTL of 1 day"<< endl;
+		makeMasterFile << ";" 		   					 << endl;
+		makeMasterFile << "@	IN	NS	ns1." 		     << dominName << "." << endl;
+		makeMasterFile << ";"  							 << endl;
+		makeMasterFile << "1	IN	PTR	ns1."  	         << dominName << "." << endl;
+		makeMasterFile << "2	IN	PTR	ns2."  	     	 << dominName << "." << endl;
+		makeMasterFile << ";"  							 << endl;
+		makeMasterFile << "5	IN	PTR	server1."  	     << dominName << "." << endl;
+		makeMasterFile << "6	IN	PTR	server2."  	     << dominName << "." << endl;
+		makeMasterFile << ";"  							 << endl;
+		makeMasterFile << "3	IN	PTR	ftp."  	     	 << dominName << "." << endl;
+		makeMasterFile << "4	IN	PTR	ftp."  	         << dominName << "." << endl;
 		makeMasterFile << "\n";
 		makeMasterFile.close();
 

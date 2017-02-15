@@ -212,6 +212,7 @@ int main()
 
 						 	system("reset");
 
+						 	cout << "Please wite ... \n";
 						 	cout << "------------------------------------------------ \n";
 						 	cout << "BIND IS NOW CONFIG BY easyBindConfig ;-)\n";
 						 	cout << "------------------------------------------------ \n";
@@ -220,7 +221,10 @@ int main()
 		   				 	cout << "Your nameserver  : " << "dns1." << dominName << endl;
 		   				 	cout << "Your nameserver  : " << "dns2." << dominName << endl;
 						 	cout << "------------------------------------------------ \n";
-						 	cout << "Please wite ... ";
+						 	
+						 	//restart bind dns server
+						 	syscommand.bindServiceRestart(linuxType);
+
 		   				 	usleep(10000000);
    					  	}
 
@@ -245,37 +249,34 @@ int main()
 		 	{
 	
 		 	}
-		 	else if(pointer == "install")
-		 	{
-
-		 	}
 		 	else if(pointer == "remove")
 		 	{
-
+		 		syscommand.bindServiceUnistall(linuxType);
 		 	}
 		 	else if(pointer == "restor")
 		 	{
-
+		 		syscommand.restoreOrginalfile(linuxType);
 		 	}
 		 	else if(pointer == "start")
 		 	{
-
+		 		syscommand.bindServiceStart(linuxType);
 		 	}
 		 	else if(pointer == "stop")
 		 	{
-
+		 		syscommand.bindServiceStop(linuxType);
 		 	}
 		 	else if(pointer == "enable")
 		 	{
-
+		 		syscommand.bindServiceEnable(linuxType);
 		 	}
 		 	else if(pointer == "disable")
 		 	{
+		 		syscommand.bindServiceDisable(linuxType);
 
 		 	}
 		 	else if(pointer == "reset")
 		 	{
-
+		 		syscommand.bindServiceRestart(linuxType);
 		 	}
 		 	else if(pointer == "exit")
 		 	{
@@ -295,6 +296,8 @@ int main()
 				//install bind service on linux by linuxType
 				SysCommand BindServiceInstall;
 				BindServiceInstall.bindServiceInstall(linuxType);
+				BindServiceInstall.bindServiceStart(linuxType);
+				BindServiceInstall.bindServiceEnable(linuxType);
 			}
 			system("clear");
 			bindInstall = true;

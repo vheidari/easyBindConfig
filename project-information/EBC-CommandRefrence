@@ -4,6 +4,7 @@ EBC Command Reference:
 	- general command
 		-- config  = go to config bind on dns server
 		-- install = install bind on linux distro
+		-- reinstall = reinstall bind on linux distro
 		-- remove  = remove from linux distro
 		-- restor  = restor defulat bind dns sever file
 		 - soft command 
