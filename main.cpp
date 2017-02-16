@@ -66,6 +66,11 @@ int main()
 					linuxType = "Ubuntu";
 					linuxName = "Mint";
 				}				
+				else if(line.find("ID=kali", 0) != string::npos)
+				{
+					linuxType = "Ubuntu";
+					linuxName = "Kali";
+				}				
 				else if(line.find("ID=\"centos\"", 0) != string::npos)
 				{
 					linuxType = "Centos";

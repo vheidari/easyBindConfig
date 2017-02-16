@@ -5,7 +5,7 @@
  - This help to you easy install and config bind on your server if you want more about bind dns server software see here : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
 
 ## linux server support 
- - Work on Ubunto - Mint - Fedora - Debian - RedHat and Centos
+ - Work on Ubunto - Mint - Kali - Fedora - Debian - RedHat and Centos
 
 ## Install and using 
  * -- STEP 01 - Download Easy Bind config from git url and unzip
