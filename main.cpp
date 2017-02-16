@@ -64,7 +64,7 @@ int main()
 				else if(line.find("ID=linuxmint", 0) != string::npos)
 				{
 					linuxType = "Ubuntu";
-					linuxName = "linuxmint";
+					linuxName = "Mint";
 				}				
 				else if(line.find("ID=\"centos\"", 0) != string::npos)
 				{
