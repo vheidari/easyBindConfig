@@ -103,8 +103,8 @@ int main()
 
 		if(linuxName == "")
 		{
-			linuxType = "Unkhowe os";
-			linuxName = "Unkhowe Os";
+			linuxType = "Unknown os";
+			linuxName = "Unknown os";
 		}
 
 		 system("reset");
@@ -120,7 +120,7 @@ int main()
 		 cout << "Bind dns server is : " << bindInstallStatus << endl;
 		 cout << "-------------------------------------------------------\n";
 
-		 if(linuxType == "Unkhowe Os")
+		 if(linuxType == "Unknown os")
 		 {
 		 	cout << "-------------------------------------------------------\n";
 		 	cout << "EBC Unkhowe Os and not work on linux distro !\n";
