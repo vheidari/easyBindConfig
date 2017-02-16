@@ -30,6 +30,7 @@ int main()
 		   typeZone,
 		   allowUpdate,
 		   linuxType,
+		   linuxName,
 		   bindInstallStatus,
 		   line;
 
@@ -52,32 +53,38 @@ int main()
 	getLinuxType.open("/etc/os-release");
 		if(getLinuxType.is_open())
 		{
-			while( getline(getLinuxType, line) )
+			while(!getLinuxType.eof())
 			{
-				if(line.find("NAME=\"Ubuntu\""))
+				getline(getLinuxType, line);
+				if(line.find("ID=ubuntu", 0) != string::npos)
 				{	
 					linuxType = "Ubuntu";
+					linuxName = "Ubuntu";
 				}
-				else if(line.find("NAME=\"Centos\""))
+				else if(line.find("ID=linuxmint", 0) != string::npos)
+				{
+					linuxType = "Ubuntu";
+					linuxName = "linuxmint";
+				}				
+				else if(line.find("ID=\"centos\"", 0) != string::npos)
 				{
 					linuxType = "Centos";
+					linuxName = "Centos";
 				}
-				else if(line.find("NAME=\"Fedora\""))
+				else if(line.find("ID=fedora", 0) != string::npos)
 				{
 					linuxType = "Fedora";
+					linuxName = "Fedora";
+
 				}				
-				else if(line.find("Debian GUN/Linux"))
+				else if(line.find("ID=debian", 0) != string::npos)
 				{
 					linuxType = "Debian";
-				}
-				else
-				{
-					linuxType = "Unkhowe Os";
+					linuxName = "Debian";
 				}
 			}	
 		}
 	
-
 	while(true)
 	{
 
@@ -94,6 +101,11 @@ int main()
 		//run command 
 		SysCommand syscommand;
 
+		if(linuxName == "")
+		{
+			linuxType = "Unkhowe os";
+			linuxName = "Unkhowe Os";
+		}
 
 		 system("reset");
 		 cout << "Easy Bind Config version 0.1 \n";
@@ -103,10 +115,20 @@ int main()
 		 cout << "	+ Author EMAIL  : vahid-heidari@hotmail.com \n";
 		 cout << "	+ License  	: MIT License \n";
 		 cout << "-------------------------------------------------------\n";
-		 cout << "Your linux is :  " << linuxType << " distro " << endl;
+		 cout << "Your linux is :  " << linuxName << " distro " << endl;
 		 cout << "\n";
 		 cout << "Bind dns server is : " << bindInstallStatus << endl;
 		 cout << "-------------------------------------------------------\n";
+
+		 if(linuxType == "Unkhowe Os")
+		 {
+		 	cout << "-------------------------------------------------------\n";
+		 	cout << "EBC Unkhowe Os and not work on linux distro !\n";
+		 	cout << "easyBindConfig only work on Ubuntu,Mint,Centos,Fedora,Debian \n";
+		 	cout << "-------------------------------------------------------\n";
+		 	usleep(3000000);
+		 	syscommand.exitFromEbc();
+		 }
 
 		//check BindBackup is exist in /etc/bind
 		bindBackupExist = ExistDirObject.chekingBindBackup(linuxType);
@@ -307,5 +329,6 @@ int main()
 
 
 	} //end of while
+
 
 }
