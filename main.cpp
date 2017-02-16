@@ -326,6 +326,15 @@ int main()
 				BindServiceInstall.bindServiceStart(linuxType);
 				BindServiceInstall.bindServiceEnable(linuxType);
 			}
+			else if(pointer == "help")
+		 	{
+	
+		 	}
+		 	else if(pointer == "exit")
+		 	{
+		 		syscommand.exitFromEbc();
+		 	}
+
 			system("clear");
 			bindInstall = true;
 			continue;
