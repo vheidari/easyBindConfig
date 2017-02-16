@@ -127,7 +127,6 @@ int main()
 
 		 if(linuxType == "Unknown os")
 		 {
-		 	cout << "-------------------------------------------------------\n";
 		 	cout << "EBC Unkhowe Os and not work on linux distro !\n";
 		 	cout << "easyBindConfig only work on Ubuntu,Mint,Centos,Fedora,Debian \n";
 		 	cout << "-------------------------------------------------------\n";
@@ -230,8 +229,8 @@ int main()
 		   				 	// make and backup zone file in /etc/bind/zones
 		   				 	// update zone and master file
 		   				 	MakeFile MakeZoneFile;
-		   				 	MakeZoneFile.ubuntuUpdateZoneInNamedFile(dominName);
-		   				 	MakeZoneFile.ubuntuUpdateMasterInNamedFile(ipAddress);
+		   				 	MakeZoneFile.updateZoneInNamedFile(linuxType, dominName);
+		   				 	MakeZoneFile.updateReversInNamedFile(linuxType, ipAddress);
 		   
 						    // make zone file and master file
 							MakeZoneFile.ubuntuMakeZoneFile(dominName, ipAddress);
@@ -257,11 +256,111 @@ int main()
 
 				 	}
 				 	
-
 				}
 				else if(linuxType == "Centos")
 				{
-					//todo	
+					
+				 	if(!bindBackupExist)
+				 	{
+				 		//make backup from bind file 
+				 		SysCommand bindBackUpFile;
+				 		bindBackUpFile.copyAndMakeBackup(linuxType);
+				 	}
+
+				 	cout << "EBC find Bind Dns Server software \n";
+				 	cout << "	+Please insert ip server ex = 48.10.15.30\n";
+				 	cout << "EBC > ";
+				 	cin  >> pointer;
+				 	
+				 	if(pointer == "exit")
+				 	{
+						syscommand.exitFromEbc();
+				 	}
+				 	else if(pointer == "back")
+				 	{
+				 		continue;
+				 	}
+				 	else if(pointer == "help")
+				 	{
+				 		//todo
+				 	}
+				 	else
+				 	{
+				 		ipAddress = pointer;
+
+				 		//chack ipAddress version 4
+				 		Validate validInput;
+				 		ipVer4Status = validInput.validateIpV4Address(ipAddress);
+	
+					 	if(!ipVer4Status)
+					 	{
+					 		cout << "Your input ip is not valid ! Please Wait easyBindConfig restart...\n";
+					 		usleep(3000000);
+					 		continue;
+					 	}
+	
+				 	   cout << "	+Please insert domin name ex = mydomin.com\n";
+   				 	   cout << "EBC > ";
+   				 	   cin  >>	pointer;
+
+   				 		if(pointer == "exit")
+					 	{
+							syscommand.exitFromEbc();
+					 	}
+					 	else if(pointer == "back")
+					 	{
+					 		continue;
+					 	}
+					 	else if(pointer == "help")
+				 		{
+				 			//todo
+				 		}
+   					  	else
+   					  	{
+   					  	    dominName = pointer;
+   				 	   
+		   				    //check dominName input by user
+		   			   	    dominNameStatus = validInput.validateDomineName(dominName);
+		   				    if(!dominNameStatus)
+		   				    {
+		   				 	   	cout << "Your input domine name is not valid ! Please Wait easyBindConfig restart...\n";
+		   				 	   	usleep(3000000);
+		   				 	   	continue;
+		   				    }
+		   				 	   
+		   				    //todo centos
+		   					
+		   				 	// make and backup zone file in /etc/bind/zones
+		   				 	// update zone and master file
+		   				 	MakeFile MakeZoneFile;
+		   				 	MakeZoneFile.updateZoneInNamedFile(linuxType, dominName);
+		   				 	MakeZoneFile.updateReversInNamedFile(linuxType, ipAddress);
+		   					
+		   					/*
+						    // make zone file and master file
+							MakeZoneFile.ubuntuMakeZoneFile(dominName, ipAddress);
+						 	MakeZoneFile.ubuntuMakeMasterFile(dominName, ipAddress);	
+
+						 	system("reset");
+
+						 	cout << "Please wite ... \n";
+						 	cout << "------------------------------------------------ \n";
+						 	cout << "BIND IS NOW CONFIG BY easyBindConfig ;-)\n";
+						 	cout << "------------------------------------------------ \n";
+						 	cout << "Your  ip address : " << ipAddress << endl;
+		   				 	cout << "Your domin name  : " << dominName << endl;
+		   				 	cout << "Your nameserver  : " << "dns1." << dominName << endl;
+		   				 	cout << "Your nameserver  : " << "dns2." << dominName << endl;
+						 	cout << "------------------------------------------------ \n";
+						 	
+						 	//restart bind dns server
+						 	syscommand.bindServiceRestart(linuxType);
+
+		   				 	usleep(30000000);
+		   				 	*/
+   					  	}
+
+				 	}
 				}
 				else if(linuxType == "Fedora")
 				{	
@@ -328,7 +427,7 @@ int main()
 			}
 			else if(pointer == "help")
 		 	{
-	
+				//todo
 		 	}
 		 	else if(pointer == "exit")
 		 	{

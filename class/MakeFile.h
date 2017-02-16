@@ -22,45 +22,109 @@ public:
 	}
 
 	//update zone file and make zones directory
-	void ubuntuUpdateZoneInNamedFile(string dominName)
+	void updateZoneInNamedFile(string linuxType, string dominName)
 	{
-		system("mkdir /etc/bind/zones");
-		system("cp /etc/bind/named.conf.local /etc/bind/named.conf.local.backup");
-		
-		ofstream makeZone;
-		makeZone.open("/etc/bind/named.conf.local", std::ios::app);
-		makeZone << "\n";
-		makeZone << "####################  zone+master make by easy bind config #####################";
-		makeZone << "\n" << endl;
-		makeZone << "zone \"" << dominName << "\" {" << endl;
-		makeZone << "type master;" <<  endl;
-		makeZone << "file \"/etc/bind/zones/" << dominName << ".db\";" << endl;
-		makeZone << "};" << endl;
-		makeZone << "\n";
-		makeZone.close();
+		if(linuxType == "Ubuntu")
+		{
+			system("mkdir /etc/bind/zones");
+			system("cp /etc/bind/named.conf.local /etc/bind/named.conf.local.backup");
+			
+			ofstream makeZone;
+			makeZone.open("/etc/bind/named.conf.local", std::ios::app);
+			makeZone << "\n";
+			makeZone << "####################  zone+master make by easy bind config #####################";
+			makeZone << "\n" << endl;
+			makeZone << "zone \"" << dominName << "\" {" << endl;
+			makeZone << "type master;" <<  endl;
+			makeZone << "file \"/etc/bind/zones/" << dominName << ".db\";" << endl;
+			makeZone << "};" << endl;
+			makeZone << "\n";
+			makeZone.close();
+		}
+		else if(linuxType == "Centos")
+		{
+			system("mkdir /var/named/zones");
+			system("cp /etc/named.conf /var/named/named.conf.backup");
+			
+			ofstream makeZone;
+			makeZone.open("/etc/named.conf", std::ios::app);
+			makeZone << "\n";
+			makeZone << "####################  zone+master make by easy bind config #####################";
+			makeZone << "\n" << endl;
+			makeZone << "zone \"" << dominName << "\" {" << endl;
+			makeZone << "type master;" <<  endl;
+			makeZone << "file \"/var/named/zones/" << dominName << ".db\";" << endl;
+			makeZone << "};" << endl;
+			makeZone << "\n";
+			makeZone.close();
+		}
 	}
 
 	// update named.conf.local file and add master recorde 
 	// help link : 
 	// --http://stackoverflow.com/questions/10366631/c-how-to-convert-ip-address-to-bytes
-	void ubuntuUpdateMasterInNamedFile(string ipAddress)
+	void updateReversInNamedFile(string linuxType, string ipAddress)
 	{
-		stringstream s(ipAddress);
-		int a,b,c,d;
-		char ch;
-		s >> a >> ch >> b >> ch >> c >> ch >> d;
-		ofstream makeZoneMaster;
-		makeZoneMaster.open("/etc/bind/named.conf.local", std::ios::app);
-		makeZoneMaster << "\n" << endl;
-		makeZoneMaster << "zone \"" << c << "." << b << "." << a << ".in-addr.arpa\" {" << endl;
-		makeZoneMaster << "type master;" << endl;
-		makeZoneMaster << "file \"/etc/bind/zones/rev." << c << "." << b << "." << a << ".in-addr.arpa\";" << endl;
-		makeZoneMaster << "allow-update { none; };" << endl;
-		makeZoneMaster << "};" << endl;
-		makeZoneMaster << "\n";
-		makeZoneMaster << "#################### zone+master make by easy bind config #####################";
-		makeZoneMaster << "\n";
-		makeZoneMaster.close();
+		if(linuxType == "Ubuntu")
+		{
+			stringstream s(ipAddress);
+			int a,b,c,d;
+			char ch;
+			s >> a >> ch >> b >> ch >> c >> ch >> d;
+			ofstream makeZoneMaster;
+			makeZoneMaster.open("/etc/bind/named.conf.local", std::ios::app);
+			makeZoneMaster << "\n" << endl;
+			makeZoneMaster << "zone \"" << c << "." << b << "." << a << ".in-addr.arpa\" {" << endl;
+			makeZoneMaster << "type master;" << endl;
+			makeZoneMaster << "file \"/etc/bind/zones/rev." << c << "." << b << "." << a << ".in-addr.arpa\";" << endl;
+			makeZoneMaster << "allow-update { none; };" << endl;
+			makeZoneMaster << "};" << endl;
+			makeZoneMaster << "\n";
+			makeZoneMaster << "#################### zone+master make by easy bind config #####################";
+			makeZoneMaster << "\n";
+			makeZoneMaster.close();
+		}
+		else if(linuxType == "Centos")
+		{
+			ofstream outNamed;
+			outNamed.open("/var/named/named.txt");
+			ifstream readNamed;
+			readNamed.open("/etc/named.conf");
+			string search = "listen-on port 53 { 127.0.0.1; };";
+			string outString;
+
+			while(getline(readNamed, outString))
+			{
+				if(outString == search)
+				{
+					outNamed << "listen-on port 53 { 127.0.0.1; " << ipAddress << ";}";
+				}
+				else
+				{
+					outNamed << outString;
+				}
+			}
+			outNamed.close();
+			readNamed.close();
+
+			stringstream s(ipAddress);
+			int a,b,c,d;
+			char ch;
+			s >> a >> ch >> b >> ch >> c >> ch >> d;
+			ofstream makeZoneMaster;
+			makeZoneMaster.open("/etc/named.conf", std::ios::app);
+			makeZoneMaster << "\n" << endl;
+			makeZoneMaster << "zone \"" << c << "." << b << "." << a << ".in-addr.arpa\" {" << endl;
+			makeZoneMaster << "type master;" << endl;
+			makeZoneMaster << "file \"/var/named/zones/rev." << c << "." << b << "." << a << ".in-addr.arpa\";" << endl;
+			makeZoneMaster << "allow-update { none; };" << endl;
+			makeZoneMaster << "};" << endl;
+			makeZoneMaster << "\n";
+			makeZoneMaster << "#################### zone+master make by easy bind config #####################";
+			makeZoneMaster << "\n";
+			makeZoneMaster.close();
+
+		}
 
 	}	
 

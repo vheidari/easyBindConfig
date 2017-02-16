@@ -28,7 +28,7 @@ public:
 		}
 		else if(linuxType == "Centos")
 		{
-			system("sudo yum install bind*");
+			system("sudo yum install bind bind-utils");
 		}		
 		else if(linuxType == "Fedora")
 		{
