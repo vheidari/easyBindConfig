@@ -86,28 +86,6 @@ public:
 		}
 		else if(linuxType == "Centos")
 		{
-			ofstream outNamed;
-			outNamed.open("/var/named/named.txt");
-			ifstream readNamed;
-			readNamed.open("/etc/named.conf");
-			string search = "listen-on port 53 { 127.0.0.1; };";
-			string outString;
-
-			while(readNamed.eof())
-			{
-				getline(readNamed, outString);
-				
-				if(outString.find("listen-on port 53 { 127.0.0.1; ", 0) != string::npos)
-				{
-					outNamed << "listen-on port 53 { 127.0.0.1; " << ipAddress << ";}";
-				}
-				else
-				{
-					outNamed << outString << endl;
-				}
-			}
-			outNamed.close();
-			readNamed.close();
 
 			stringstream s(ipAddress);
 			int a,b,c,d;
