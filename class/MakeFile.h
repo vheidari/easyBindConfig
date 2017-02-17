@@ -93,15 +93,17 @@ public:
 			string search = "listen-on port 53 { 127.0.0.1; };";
 			string outString;
 
-			while(getline(readNamed, outString))
+			while(readNamed.eof())
 			{
-				if(outString == search)
+				getline(readNamed, outString);
+				
+				if(outString.find("listen-on port 53 { 127.0.0.1; ", 0) != string::npos)
 				{
 					outNamed << "listen-on port 53 { 127.0.0.1; " << ipAddress << ";}";
 				}
 				else
 				{
-					outNamed << outString;
+					outNamed << outString << endl;
 				}
 			}
 			outNamed.close();
