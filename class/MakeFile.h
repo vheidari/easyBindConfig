@@ -7,7 +7,6 @@ class MakeFile {
 
 public:
 
-
 	// making bind9 file in /etc/default/bind9
 	void ubuntuMakeBind9File()
 	{

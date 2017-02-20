@@ -34,5 +34,5 @@
 
 
 
-## easyBindConfig video tutarial 
+## easyBindConfig video tutorial 
 - Comming soon
