@@ -7,7 +7,7 @@ class MakeFile {
 
 public:
 
-	
+
 	// making bind9 file in /etc/default/bind9
 	void ubuntuMakeBind9File()
 	{
@@ -28,7 +28,7 @@ public:
 		{
 			system("mkdir /etc/bind/zones");
 			system("cp /etc/bind/named.conf.local /etc/bind/named.conf.local.backup");
-			
+
 			ofstream makeZone;
 			makeZone.open("/etc/bind/named.conf.local", std::ios::app);
 			makeZone << "\n";
@@ -45,7 +45,7 @@ public:
 		{
 			system("mkdir /var/named/zones");
 			system("cp /etc/named.conf /var/named/named.conf.backup");
-			
+
 			ofstream makeZone;
 			makeZone.open("/etc/named.conf", std::ios::app);
 			makeZone << "\n";
@@ -60,8 +60,8 @@ public:
 		}
 	}
 
-	// update named.conf.local file and add master recorde 
-	// help link : 
+	// update named.conf.local file and add master recorde
+	// help link :
 	// --http://stackoverflow.com/questions/10366631/c-how-to-convert-ip-address-to-bytes
 	void updateReversInNamedFile(string linuxType, string ipAddress)
 	{
@@ -91,7 +91,7 @@ public:
 			ifstream readNamed;
 			string readLine;
 			readNamed.open("/etc/named.conf");
-			
+
 			ofstream writeNamed;
 			writeNamed.open("/var/named/named.conf");
 
@@ -100,9 +100,11 @@ public:
 				while(!readNamed.eof())
 				{
 					getline(readNamed, readLine);
-					if(readLine == " listen-on port 53 { 127.0.0.1; };")
+					if(readLine == "	listen-on port 53 { 127.0.0.1; };")
 					{
-						writeNamed << " listen-on port 53 { 127.0.0.1; " + ipAddress + "; };" << endl;
+						writeNamed << "	listen-on port 53 { 127.0.0.1; " + ipAddress + "; };" << endl;
+						cout << "Im find";
+						usleep(5000000);
 						continue;
 					}
 					writeNamed << readLine << endl;
@@ -147,9 +149,9 @@ public:
 
 		}
 
-	}	
+	}
 
-	//make zone file for domain 
+	//make zone file for domain
 	void ubuntuMakeZoneFile(string dominName, string ipAddress)
 	{
 		string path = "/etc/bind/zones/" + dominName + ".db";
@@ -217,7 +219,7 @@ public:
 
 
 	}
-		
+
 
 
 
