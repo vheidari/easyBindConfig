@@ -103,8 +103,6 @@ public:
 					if(readLine == "	listen-on port 53 { 127.0.0.1; };")
 					{
 						writeNamed << "	listen-on port 53 { 127.0.0.1; " + ipAddress + "; };" << endl;
-						cout << "Im find";
-						usleep(5000000);
 						continue;
 					}
 					writeNamed << readLine << endl;
