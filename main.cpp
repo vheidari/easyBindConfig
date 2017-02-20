@@ -327,8 +327,7 @@ int main()
 		   				 	   	usleep(3000000);
 		   				 	   	continue;
 		   				    }
-		   				 	   
-		   				    //todo centos
+		   				 
 		   					
 		   				 	// make and backup zone file in /etc/bind/zones
 		   				 	// update zone and master file
@@ -356,7 +355,7 @@ int main()
 						 	//restart bind dns server
 						 	syscommand.bindServiceRestart(linuxType);
 
-		   				 	usleep(30000000);
+		   				 	usleep(10000000);
    					  	}
 
 				 	}
