@@ -87,6 +87,47 @@ public:
 		else if(linuxType == "Centos")
 		{
 
+
+			ifstream readNamed;
+			string readLine;
+			readNamed.open("/etc/named.conf");
+			
+			ofstream writeNamed;
+			writeNamed.open("/var/named/named.conf");
+
+			if(readNamed.is_open())
+			{
+				while(!readNamed.eof())
+				{
+					getline(readNamed, readLine);
+					if(readLine == " listen-on port 53 { 127.0.0.1; };")
+					{
+						writeNamed << " listen-on port 53 { 127.0.0.1; " + ipAddress + "; };" << endl;
+						continue;
+					}
+					writeNamed << readLine << endl;
+				}
+			}
+
+			readNamed.close();
+			writeNamed.close();
+
+			// check /var/named/named.conf is exist and rewrite on /etc/named.conf
+			ifstream checkNamed;
+			checkNamed.open("/var/named/named.conf");
+			if(checkNamed.is_open())
+			{
+				checkNamed.close();
+				system("cp /var/named/named.conf /etc/named.conf");
+				system("rm -rf /var/named/named.conf");
+			}
+			else
+			{
+				checkNamed.close();
+			}
+
+
+
 			stringstream s(ipAddress);
 			int a,b,c,d;
 			char ch;
