@@ -233,8 +233,8 @@ int main()
 		   				 	MakeZoneFile.updateReversInNamedFile(linuxType, ipAddress);
 		   
 						    // make zone file and master file
-							MakeZoneFile.ubuntuMakeZoneFile(dominName, ipAddress);
-						 	MakeZoneFile.ubuntuMakeMasterFile(dominName, ipAddress);	
+							MakeZoneFile.makeZoneFile(linuxType, dominName, ipAddress);
+						 	MakeZoneFile.makeReversFile(linuxType, dominName, ipAddress);	
 
 						 	system("reset");
 
@@ -336,10 +336,10 @@ int main()
 		   				 	MakeZoneFile.updateZoneInNamedFile(linuxType, dominName);
 		   				 	MakeZoneFile.updateReversInNamedFile(linuxType, ipAddress);
 		   					
-		   					/*
+		   				
 						    // make zone file and master file
-							MakeZoneFile.ubuntuMakeZoneFile(dominName, ipAddress);
-						 	MakeZoneFile.ubuntuMakeMasterFile(dominName, ipAddress);	
+							MakeZoneFile.makeZoneFile(linuxType, dominName, ipAddress);
+						 	MakeZoneFile.makeReversFile(linuxType, dominName, ipAddress);	
 
 						 	system("reset");
 
@@ -357,7 +357,6 @@ int main()
 						 	syscommand.bindServiceRestart(linuxType);
 
 		   				 	usleep(30000000);
-		   				 	*/
    					  	}
 
 				 	}
