@@ -78,13 +78,13 @@ int main()
 				}
 				else if(line.find("ID=fedora", 0) != string::npos)
 				{
-					linuxType = "Fedora";
+					linuxType = "Centos";
 					linuxName = "Fedora";
 
 				}				
 				else if(line.find("ID=debian", 0) != string::npos)
 				{
-					linuxType = "Debian";
+					linuxType = "Ubuntu";
 					linuxName = "Debian";
 				}
 			}	
