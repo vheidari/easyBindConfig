@@ -46,7 +46,7 @@ int main()
 
 	char getKeyPress;
 
-
+	SysCommand easyBindConfighelp;
 
 	//check linux distro
 	ifstream getLinuxType;
@@ -176,7 +176,7 @@ int main()
 				 	}
 				 	else if(pointer == "help")
 				 	{
-				 		//todo
+				 		easyBindConfighelp.help();
 				 	}
 				 	else
 				 	{
@@ -207,7 +207,7 @@ int main()
 					 	}
 					 	else if(pointer == "help")
 				 		{
-				 			//todo
+				 			easyBindConfighelp.help();
 				 		}
    					  	else
    					  	{
@@ -282,7 +282,7 @@ int main()
 				 	}
 				 	else if(pointer == "help")
 				 	{
-				 		//todo
+				 		easyBindConfighelp.help();
 				 	}
 				 	else
 				 	{
@@ -313,7 +313,7 @@ int main()
 					 	}
 					 	else if(pointer == "help")
 				 		{
-				 			//todo
+				 			easyBindConfighelp.help();
 				 		}
    					  	else
    					  	{
@@ -371,7 +371,7 @@ int main()
 		 	}
 		 	else if(pointer == "help")
 		 	{
-	
+				easyBindConfighelp.help();
 		 	}
 		 	else if(pointer == "remove")
 		 	{
@@ -425,7 +425,7 @@ int main()
 			}
 			else if(pointer == "help")
 		 	{
-				//todo
+				easyBindConfighelp.help();
 		 	}
 		 	else if(pointer == "exit")
 		 	{

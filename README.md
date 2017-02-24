@@ -31,6 +31,7 @@
  * -- `reset`    = using reset    command Easy Bind Config reset bind dns server on linux distro
  * -- `exit`     = using exit     command Exit of Easy Bind Config 
  * -- `back`     = using back     command Back to main page of Easy Bind Config 
+ * -- `help`     = using help     command go to help page of Easy Bind Config 
 
 
 

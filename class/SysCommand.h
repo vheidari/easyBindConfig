@@ -259,6 +259,35 @@ public:
 		exit(0);
 	}	
 
+	//todo 
+
+	void help()
+	{
+		system("reset");
+		
+		string pointer;
+
+		while(true)
+		{
+			cout << " \033[7;32m easy Bind Config help \033[0m\n" << endl;
+
+			cout << "DESCRIPTION : " << endl;
+			cout << " 	description here ...  " << endl;
+			cout << "	+for back to main page type 'back' " << endl;
+			cout << "EBC > ";
+			cin  >> pointer;
+
+			if(pointer == "back")
+			{
+				break;
+			}
+			else
+			{
+				system("reset");
+			}
+		}
+
+	}
 
 
 
