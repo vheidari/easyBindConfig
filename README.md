@@ -1,3 +1,5 @@
+![logo](https://cloud.githubusercontent.com/assets/919149/23335720/60b8972c-fbd0-11e6-85e4-ce7f8d7f28a4.png)
+
 # SERVER ADMIN NOTE
  - This software in development . not a stable version of `Easy Bind Config`. please don't use for production
 
