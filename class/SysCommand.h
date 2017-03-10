@@ -259,36 +259,79 @@ public:
 		exit(0);
 	}	
 
-	//todo 
 
+	// show help page
 	void help()
-	{
-		system("reset");
-		
-		string pointer;
-
-		while(true)
 		{
-			cout << " \033[7;32m easy Bind Config help \033[0m\n" << endl;
+			system("reset");
+			
+			string pointer;
 
-			cout << "DESCRIPTION : " << endl;
-			cout << " 	description here ...  " << endl;
-			cout << "	+for back to main page type 'back' " << endl;
-			cout << "EBC > ";
-			cin  >> pointer;
+			while(true)
+			{
+				cout << " \033[7;32m easy Bind Config help \033[0m\n" << endl;
+				cout << "-----------------------------------------------------------------------" << endl;
+				cout << "DESCRIPTION : " << endl<< endl;
+				cout << " +Command: \033[7;32m config \033[0m\n" << endl;
+				cout << " 	- For start config bind on your server. use this command." << endl;
+				cout << endl;
+				cout << " +Command: \033[7;32m install \033[0m\n" << endl;
+				cout << " 	- For start install bind dns server software on your server. " << endl;
+				cout << "	  you can use this command. this is auto install bind on your server" << endl;
+				cout << "	  work on default easyBindConfig distro support." << endl;
+				cout << endl;
+				cout << " +Command: \033[7;32m remove \033[0m\n" << endl;
+				cout << " 	- For remove bind from your server you can use this command. " << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m restor \033[0m\n" << endl;
+				cout << " 	- after install bind on your server by easyBindConfig. EBC backup " << endl;
+				cout << " 	  bind default config. if problems in config  use this command" << endl;
+				cout << " 	  EBC restore backup file and rewrite config file." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m enable \033[0m\n" << endl;
+				cout << " 	- for enable bind service and make a symbolic link use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m start \033[0m\n" << endl;
+				cout << " 	- for start bind service use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m stop \033[0m\n" << endl;
+				cout << " 	- for stop bind service use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m disable \033[0m\n" << endl;
+				cout << " 	- for disable bind service use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m reset \033[0m\n" << endl;
+				cout << " 	- for reset bind service use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m exit \033[0m\n" << endl;
+				cout << " 	- for exit from easyBindConfig use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m back \033[0m\n" << endl;
+				cout << " 	- for back to main page use this command." << endl;
+				cout << endl;			
+				cout << " +Command: \033[7;32m help \033[0m\n" << endl;
+				cout << " 	- if you need help you can this command." << endl;
+				cout << endl;
+				cout << "-----------------------------------------------------------------------" << endl;
+				cout << "	+for back to main page type 'back' " << endl;
+				cout << "EBC > ";
+				cin  >> pointer;
 
-			if(pointer == "back")
-			{
-				break;
+				if(pointer == "back")
+				{
+					break;
+				}
+				else if(pointer == "exit")
+				{
+					SysCommand::exitFromEbc();
+				}
+				else
+				{
+					system("reset");
+				}
 			}
-			else
-			{
-				system("reset");
-			}
+
 		}
-
-	}
-
 
 
 };
