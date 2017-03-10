@@ -377,7 +377,7 @@ int main()
 		 	{
 		 		syscommand.bindServiceUnistall(linuxType);
 		 	}
-		 	else if(pointer == "restor")
+		 	else if(pointer == "restore")
 		 	{
 		 		syscommand.restoreOrginalfile(linuxType);
 		 	}

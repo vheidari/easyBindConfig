@@ -283,7 +283,7 @@ public:
 				cout << " +Command: \033[7;32m remove \033[0m\n" << endl;
 				cout << " 	- For remove bind from your server you can use this command. " << endl;
 				cout << endl;			
-				cout << " +Command: \033[7;32m restor \033[0m\n" << endl;
+				cout << " +Command: \033[7;32m restore \033[0m\n" << endl;
 				cout << " 	- after install bind on your server by easyBindConfig. EBC backup " << endl;
 				cout << " 	  bind default config. if problems in config  use this command" << endl;
 				cout << " 	  EBC restore backup file and rewrite config file." << endl;
