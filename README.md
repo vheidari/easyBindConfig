@@ -22,18 +22,18 @@
  ```
 
 ## command and help
- * -- `config`   = using config   command Easy Bind Config run easy config method
- * -- `install`  = using install  command Easy Bind Config install last version of bind dns server 
- * -- `remove`   = using update   command Easy Bind Config Remove  bind dns server
- * -- `restor`   = using restor   command Easy Bind Config restor  default bind backup file 
- * -- `enable`   = using enable   command Easy Bind Config make a symbolic link and permanent bind after restart linux
- * -- `start`    = using start    command Easy Bind Config strat bind dns server on linux distro
- * -- `stop`     = using stop     command Easy Bind Config stop bind dns server on linux distro
- * -- `disable`  = using disable  command Easy Bind Config disable bind dns server on linux distro
- * -- `reset`    = using reset    command Easy Bind Config reset bind dns server on linux distro
- * -- `exit`     = using exit     command Exit of Easy Bind Config 
- * -- `back`     = using back     command Back to main page of Easy Bind Config 
- * -- `help`     = using help     command go to help page of Easy Bind Config 
+ * -- `config`   = For start config bind on your server. use this command.
+ * -- `install`  = For start install bind dns server software on your server.  
+ * -- `remove`   = For remove bind from your server you can use this command. 
+ * -- `restore`  = For restore bind from your server you can use this command. 
+ * -- `enable`   = For enable bind service and make a symbolic link use this command.
+ * -- `start`    = For start bind service use this command.
+ * -- `stop`     = For stop bind service use this command.
+ * -- `disable`  = For disable bind service use this command.
+ * -- `reset`    = For reset bind service use this command.
+ * -- `exit`     = For exit from easyBindConfig use this command.
+ * -- `back`     = For back to main page use this command.
+ * -- `help`     = If you need help you can this command.
 
 
 
