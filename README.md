@@ -1,13 +1,13 @@
 ![logo](https://cloud.githubusercontent.com/assets/919149/23335720/60b8972c-fbd0-11e6-85e4-ce7f8d7f28a4.png)
 
 # SERVER ADMIN NOTE
- - This software in development . not a stable version of `Easy Bind Config`. please don't use for production
+ - `Easy Bind Config` now a stable version. you can use EBC on Your server and fast config bind.
 
 # About Easy Bind Config
  - This help to you easy install and config bind on your server if you want more about bind dns server software see here : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
 
 ## linux server support 
- - Work on Ubunto - Mint - Kali - Fedora - Debian - RedHat and Centos
+ - Work on Ubunto - Mint - Kali - Fedora - Debian - Centos
 
 ## Install and using 
  * -- STEP 01 - Download Easy Bind config from git url and unzip

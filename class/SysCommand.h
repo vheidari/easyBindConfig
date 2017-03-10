@@ -269,7 +269,7 @@ public:
 
 			while(true)
 			{
-				cout << " \033[7;32m easy Bind Config help \033[0m\n" << endl;
+				cout << " \033[7;32m easy Bind Config help - version 0.1 \033[0m\n" << endl;
 				cout << "-----------------------------------------------------------------------" << endl;
 				cout << "DESCRIPTION : " << endl<< endl;
 				cout << " +Command: \033[7;32m config \033[0m\n" << endl;
