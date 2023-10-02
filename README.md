@@ -4,18 +4,18 @@
  - `Easy Bind Config` is now a stable version. You can use EBC on your server to quickly configure Bind.
 
 # About Easy Bind Config
- - This help to you easy install and config bind on your server if you want more about bind dns server software see here : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
+ - This helps you easily install and configure Bind on your server. If you aren't familiar with `Bind` and you want to read more information, please check this link.  : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
 
 ## linux server support 
- - Work on Ubunto - Mint - Kali - Fedora - Debian - Centos
+ - You can make and install `Easy Bind Config` on the following distributions: Ubuntu, Mint, Kali, Fedora and Debian
 
-## Install and using 
- * -- STEP 01 - Download Easy Bind config from git url and unzip
- * -- STEP 02 - compile main.cpp in easyBindConfig folder
- * -- STEP 03 - Run binery by `root` and enjoy 
+## How can you install and use it?
+ * -- Step 01: Download Easy Bind Config from the Git URL and unzip it.
+ * -- Step 02: Compile the `main.cpp` file in the Easy Bind Config folder.
+ * -- Step 03: Run the binary with `root` privileges and enjoy!
 
-## compile source note 
- - Easy Bind Config Souport C++ 11 standard library for compile you using this command 
+## Note : 
+ - To compile `Easy Bind Config,` please use the `C++11` flag as shown in the following snippet :
  	
  ```
  -- g++ -std=c++0x  -o easyBindConfig main.cpp
