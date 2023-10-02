@@ -22,20 +22,15 @@
  ```
 
 ## command and help
- * -- `config`   = For start config bind on your server. use this command.
- * -- `install`  = For start install bind dns server software on your server.  
- * -- `remove`   = For remove bind from your server you can use this command. 
- * -- `restore`  = For restore bind from your server you can use this command. 
- * -- `enable`   = For enable bind service and make a symbolic link use this command.
- * -- `start`    = For start bind service use this command.
- * -- `stop`     = For stop bind service use this command.
- * -- `disable`  = For disable bind service use this command.
- * -- `reset`    = For reset bind service use this command.
- * -- `exit`     = For exit from easyBindConfig use this command.
- * -- `back`     = For back to main page use this command.
- * -- `help`     = If you need help you can this command.
-
-
-
-## easyBindConfig video tutorial 
-- Comming soon
+ * -- `config`   = To start configuring Bind on your server, use this command.
+ * -- `install`  = To start installing Bind DNS server software on your server, use this command.
+ * -- `remove`   = To remove Bind from your server, you can use this command.
+ * -- `restore`  = To restore Bind on your server, you can use this command.
+ * -- `enable`   = To enable the Bind service and create a symbolic link, use this command.
+ * -- `start`    = To start the Bind service, use this command.
+ * -- `stop`     = To stop the Bind service, use this command.
+ * -- `disable`  = To disable the Bind service, use this command.
+ * -- `reset`    = To reset the Bind service, use this command.
+ * -- `exit`     = To exit from easyBindConfig, use this command.
+ * -- `back`     = To go back to the main page menu, use this command.
+ * -- `help`     = If you need help, you can use this command.
