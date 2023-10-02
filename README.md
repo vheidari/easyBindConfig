@@ -1,7 +1,7 @@
 ![logo](https://cloud.githubusercontent.com/assets/919149/23335720/60b8972c-fbd0-11e6-85e4-ce7f8d7f28a4.png)
 
 # SERVER ADMIN NOTE
- - `Easy Bind Config` now a stable version. you can use EBC on Your server and fast config bind.
+ - `Easy Bind Config` is now a stable version. You can use EBC on your server to quickly configure Bind.
 
 # About Easy Bind Config
  - This help to you easy install and config bind on your server if you want more about bind dns server software see here : [About Bind Dns Software](https://www.isc.org/downloads/bind/)
